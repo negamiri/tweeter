@@ -1,13 +1,18 @@
-console.log("Before load");
+
 $(document).ready(function() {
     // --- our code goes here ---
-    console.log("Loaded");
     const maxLength = 140;
-    $(".tweettext").keydown(function(event) {
-        const textLength = this.value.length+1;
+    $(".tweettext").on('input', function(event) {
+        const textLength = $(this).val().length;
         const textRemaining = maxLength - textLength;
-        console.log(textRemaining);
+        const counter = $(this).siblings(".counter");
+        const negative = "negativeCounter";
+        counter.html(textRemaining);
+        if (textRemaining < 0){
+            counter.addClass(negative);
+        } else {
+            counter.removeClass(negative);
+        }
       });
 });
 
-"hello i am a string"
