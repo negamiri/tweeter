@@ -17,10 +17,10 @@ $(document).ready(function() {
         const $textLength = $(".tweettext").val().length;
         
         if ($textLength === 0 || $(".tweettext").val() === " ") {
-            alert("Please provide a message");
+            $(".error").text("Please provide a message").slideDown();
             return;
         } else if ($textLength > 140) {
-            alert("Please ensure your message is below 140 characters");
+            $(".error").text("Please ensure your character is under 140 characters").slideDown();
             return;
         } else {
         $("#tweets-container").empty();
@@ -28,6 +28,8 @@ $(document).ready(function() {
         .then(function() {
             loadTweets();
             $('#tweetform').get(0).reset();
+            $(".error").hide();
+            $(".counter").text("140");
         })
         }
     });
