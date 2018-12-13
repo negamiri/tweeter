@@ -4,6 +4,7 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
+ /*
 const data = [
     {
       "user": {
@@ -50,25 +51,40 @@ const data = [
       "created_at": 1461113796368
     }
   ];
-
+*/
 
 
 $(document).ready(function() {
 
+    $('#tweetform').submit(function(event){
+        event.preventDefault();
+        $("#tweets-container").empty();
+        $.post('/tweets', $(this).serialize())
+        .then(function() {
+            loadTweets();
+            $('#tweetform').get(0).reset();
+        })
+    });
+
+    function loadTweets(){
+        $.ajax('/tweets')
+        .then(renderTweets);
+    }
+    
     function createTweetElement(data){
         const $tweet = $("<article>").addClass("tweet");
         const $header = $("<header>").appendTo($tweet);
         const $headerimg = $('<img id="dynamic">');
         $headerimg.attr("src", data.user.avatars.small).appendTo($header);
-        const $h2 = $("<h2>").text(data.user.name).appendTo($header);
-        const $h3 = $("<h3>").text(data.user.handle).appendTo($header);
+        $("<h2>").text(data.user.name).appendTo($header);
+        $("<h3>").text(data.user.handle).appendTo($header);
         
-        const $p = $("<p>").text(data.content.text).appendTo($tweet);
+        $("<p>").text(data.content.text).appendTo($tweet);
         const date = moment(data["created_at"]).fromNow();
         const $footer = $("<footer>").text(date).appendTo($tweet);
-        const $footerimglike = $('<img src="./images/Heart-128.png" id="like">').appendTo($footer);
-        const $footerimgRt = $('<img src="./images/refresh.png" id="retweet">').appendTo($footer);
-        const $footerimgSave = $('<img src="./images/Flag-128.png" id="save">').appendTo($footer);
+        $('<img src="./images/Heart-128.png" id="like">').appendTo($footer);
+        $('<img src="./images/refresh.png" id="retweet">').appendTo($footer);
+        $('<img src="./images/Flag-128.png" id="save">').appendTo($footer);
         return $tweet;
     }
 
@@ -76,10 +92,10 @@ $(document).ready(function() {
         let $tweets = [];
         for (const key in tweets) {
             $tweets.push(createTweetElement(tweets[key]));
+            $('#tweets-container').append($tweets);
         }
-        $('#tweets-container').append($tweets);
       }
 
-    renderTweets(data);
+    loadTweets();
     
 });
