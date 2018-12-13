@@ -7,6 +7,10 @@
 
 $(document).ready(function() {
 
+    $("#compose").click(function() {
+        $(".new-tweet").toggle(400, "linear");
+        $(".tweettext").focus();
+    });
 
     $('#tweetform').submit(function(event){
         event.preventDefault();

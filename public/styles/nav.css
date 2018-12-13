@@ -21,3 +21,19 @@
     font-size: 2em;
     line-height: 2.5;
 }
+
+#nav-bar button {
+    float: right;
+    height: 50px;
+    width: 110px;
+    border-radius: 10px;
+    margin-top: 15px;
+    border: 1px solid black;
+    opacity: 0.7;
+    color: #00a087;
+}
+
+#nav-bar button:hover {
+    opacity: 1;
+    color: black;
+}
