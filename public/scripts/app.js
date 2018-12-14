@@ -42,7 +42,7 @@ $(document).ready(function() {
     function createTweetElement(data){
         const $tweet = $("<article>").addClass("tweet");
         const $header = $("<header>").appendTo($tweet);
-        const $headerimg = $('<img id="dynamic">');
+        const $headerimg = $('<img>');
         $headerimg.attr("src", data.user.avatars.small).appendTo($header);
         $("<h2>").text(data.user.name).appendTo($header);
         $("<h3>").text(data.user.handle).appendTo($header);
@@ -50,9 +50,9 @@ $(document).ready(function() {
         $("<p>").text(data.content.text).appendTo($tweet);
         const date = moment(data["created_at"]).fromNow();
         const $footer = $("<footer>").text(date).appendTo($tweet);
-        $('<img src="./images/Heart-128.png" id="like">').appendTo($footer);
-        $('<img src="./images/refresh.png" id="retweet">').appendTo($footer);
-        $('<img src="./images/Flag-128.png" id="save">').appendTo($footer);
+        $('<i class="icon fas fa-flag"></i>').appendTo($footer);
+        $('<i class="icon fas fa-retweet"></i>').appendTo($footer);
+        $('<i class="icon fas fa-heart"></i>').appendTo($footer);
         return $tweet;
     }
 

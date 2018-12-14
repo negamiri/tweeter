@@ -14,6 +14,8 @@ article.tweet header {
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     border-left: 0.5px solid black;
+    border-top: 0.5px solid black;
+    border-right: 0.5px solid black;
     color: darkslategrey;
     height: 70px;
     width: 100%;
@@ -52,10 +54,12 @@ article.tweet footer {
     height: 40px;
 }
 
-article.tweet footer img {
+article.tweet footer .icon {
+    color: #00a087;
     padding: 3px;
     width: 20px;
     float: right;
+    font-size: 20px;
     visibility: hidden;
 }
 
@@ -63,6 +67,6 @@ article.tweet:hover {
     opacity: 1;
 }
 
-article.tweet:hover footer img {
+article.tweet:hover footer .icon {
     visibility: visible;
 }
