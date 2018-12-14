@@ -1,4 +1,3 @@
-
 $(document).ready(function() {
 
     const maxLength = 140;
@@ -14,6 +13,5 @@ $(document).ready(function() {
             counter.removeClass(negative);
         }
       });
-
 });
 
