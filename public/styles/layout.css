@@ -32,6 +32,8 @@ body {
   .container { width: 100% }
 }
 
-@media (min-width: 600px) and (max-width: 780px) {
-  .container { width: 85% }
+@media (min-width: 600px) and (max-width: 800px) {
+  .container { width: 80% }
 }
+
+
