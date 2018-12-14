@@ -1,17 +1,20 @@
 textarea {
     width: 100%;
-    padding: 5px;
+    padding: 1em;
+    height: 6em;
   }
 
 
 h2 {
     border-bottom: 2px solid black;
     margin-top: 5px;
+    font-size: 2em;
 }
 
 .counter {
     float: right;
-    font-size: 12px;
+    font-size: 1.5em;
+    margin-top: 0.8em;
 }
 
 .new-tweet {
@@ -24,6 +27,15 @@ h2 {
     border-radius: 10px;
     border: 0.5px solid #D0D0D0;
     display: none;
+}
+
+#submitTweet {
+    padding: 0.2em;
+    margin-top: 0.8em;
+    font-size: 1.3em;
+    border: 0.1em solid #00a087;
+    background-color: white;
+    border-radius: 0.3em;
 }
 
 .negativeCounter {

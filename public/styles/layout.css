@@ -17,9 +17,6 @@ body {
   background-color: #eee;
 }
 
-/*
- * Additional CSS can be defined below or in other CSS files, as per instructions
- */
 
  .container {
   margin-top: 80px;
@@ -29,4 +26,12 @@ body {
   width: 450px;
   background-color: white;
   padding: 10px 0px 10px 0px;
+}
+
+@media (max-width: 600px) {
+  .container { width: 100% }
+}
+
+@media (min-width: 600px) and (max-width: 780px) {
+  .container { width: 85% }
 }
