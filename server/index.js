@@ -24,14 +24,15 @@ MongoClient.connect(MONGODB_URI, (err, db) => {
       console.log(`Failed to connect: ${MONGODB_URI}`);
       throw err;
   }
-
   console.log(`Connected to mongodb: ${MONGODB_URI}`);
 
   DataHelpers = DataHelpersFactory(db);
 
   app.use("/tweets", tweetsRoutes(DataHelpers));
 
+  //Running server
   app.listen(PORT, () => {
     console.log("Example app listening on port " + PORT);
   });
+
 });
